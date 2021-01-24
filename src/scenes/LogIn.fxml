@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LogInController">
+    <center>
+        <Pane prefHeight="375.0" prefWidth="246.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="130.0" layoutY="54.0" text="Biblioteca" />
+            </children>
+        </Pane>
+    </center>
+    <right>
+        <VBox prefHeight="375.0" prefWidth="289.0" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="179.0" prefWidth="289.0">
+                    <children>
+                        <Label layoutX="128.0" layoutY="54.0" text="Log In" />
+                    </children>
+                </Pane>
+                <Pane prefHeight="291.0" prefWidth="289.0">
+                    <children>
+                        <TextField layoutX="14.0" layoutY="29.0" promptText="Username" />
+                        <PasswordField layoutX="14.0" layoutY="74.0" promptText="Password" />
+                        <CheckBox layoutX="121.0" layoutY="124.0" mnemonicParsing="false" text="Remember me" />
+                    </children>
+                </Pane>
+                <Pane prefHeight="153.0" prefWidth="289.0">
+                    <children>
+                        <Hyperlink layoutX="14.0" layoutY="39.0" text="Dont have an account, sign up now!" fx:id="signUp" onMouseClicked="#goToSignUp"/>
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
+    </right>
+</BorderPane>
