@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.SignUpController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpController">
     <children>
         <Label layoutX="279.0" layoutY="80.0" text="Sign Up" />
-        <TextField layoutX="96.0" layoutY="188.0" promptText="Username" />
-        <PasswordField layoutX="96.0" layoutY="234.0" promptText="Password" />
-        <TextField layoutX="360.0" layoutY="188.0" promptText="Nume Client" />
-        <TextField layoutX="360.0" layoutY="234.0" promptText="Adresa email" />
-        <TextField layoutX="360.0" layoutY="280.0" promptText="Telefon Client" />
         <Label layoutX="156.0" layoutY="141.0" text="Cont" />
         <Label layoutX="410.0" layoutY="141.0" text="Persoana" />
-        <Button layoutX="408.0" layoutY="352.0" mnemonicParsing="false" text="Sign In" disable="true"/>
-        <Hyperlink layoutX="130.0" layoutY="353.0" text="Back to log in"  onMouseClicked="#goToLogIn" fx:id="logIn"/>
+        <TextField layoutX="96.0" layoutY="188.0" promptText="Username" fx:id="usernameField" onKeyReleased="#keyReleasedProperty"/>
+        <TextField layoutX="96.0" layoutY="234.0" promptText="Password" fx:id="passwordField" onKeyReleased="#keyReleasedProperty"/>
+        <PasswordField layoutX="96.0" layoutY="280.0" promptText="Confirm password" fx:id="confirmPasswordField" onKeyReleased="#keyReleasedProperty" />
+        <TextField layoutX="360.0" layoutY="188.0" promptText="Nume Client" fx:id="nameField" onKeyReleased="#keyReleasedProperty" />
+        <TextField layoutX="360.0" layoutY="234.0" promptText="Adresa email" fx:id="emailField" onKeyReleased="#keyReleasedProperty"/>
+        <TextField layoutX="360.0" layoutY="280.0" promptText="Telefon Client" fx:id="telNoField" onKeyReleased="#keyReleasedProperty"/>
+        <CheckBox layoutX="398.0" layoutY="322.0" mnemonicParsing="false" text="Verify" fx:id="verify" onAction="#keyReleasedProperty"/>
+        <Button disable="true" layoutX="408.0" layoutY="352.0" mnemonicParsing="false" text="Sign In" fx:id="signUp" />
+        <Hyperlink fx:id="logIn" layoutX="130.0" layoutY="353.0" onMouseClicked="#goToLogIn" text="Back to log in" />
     </children>
 </Pane>

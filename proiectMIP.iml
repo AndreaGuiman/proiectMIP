@@ -48,7 +48,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
           <root url="jar://D:/Facultate/Others/Some java jars/junit-4.13.jar!/" />
@@ -57,5 +57,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="hamcrest-junit" level="project" />
   </component>
 </module>
