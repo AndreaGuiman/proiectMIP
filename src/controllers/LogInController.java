@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import model.Utilizatori;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 public class LogInController {
@@ -24,6 +25,9 @@ public class LogInController {
     PasswordField passwordField;
 
     String username, password;
+
+    HashMap<String, String> usersCredentials = new HashMap<String, String>();
+
 
     public void initialize(){
         buttonLogIn.setDisable(true);
