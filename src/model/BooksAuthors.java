@@ -1,11 +1,9 @@
 package model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "booksauthors", schema = "proiectdb")
 public class BooksAuthors {
     private int idBa;
     private Integer idBook;

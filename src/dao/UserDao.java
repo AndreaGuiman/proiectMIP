@@ -30,15 +30,15 @@ public class UserDao extends GenericDao<Users>{
     }
 
     //login
-    public List<Users> find(String name){
+    public List<Users> find(String uname){
         EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Users> cq = cb.createQuery(Users.class);
         Root<Users> r = cq.from(Users.class);
-        ParameterExpression<String> pName = cb.parameter(String.class);
-        cq.select(r).where(cb.equal(r.get("username"), pName));
+        ParameterExpression<String> parameterName = cb.parameter(String.class);
+        cq.select(r).where(cb.equal(r.get("username"), parameterName));
         TypedQuery<Users> query = em.createQuery(cq);
-        query.setParameter(pName, name);
+        query.setParameter(parameterName, uname);
         return query.getResultList();
     }
 }

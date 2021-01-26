@@ -4,6 +4,7 @@ import dao.ClientDao;
 import model.Clients;
 
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class ClientService{
     private ClientDao clientDao;
@@ -18,5 +19,12 @@ public class ClientService{
 
     public void addClient(Clients client){
         clientDao.create(client);
+    }
+
+    public Clients findClient(String name) throws Exception {
+        List<Clients> clientList = clientDao.find(name);
+        if (clientList.size() == 0)
+            throw new Exception("Client not found");
+        return clientList.get(0);
     }
 }

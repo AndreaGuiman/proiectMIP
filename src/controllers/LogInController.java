@@ -6,8 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Users;
+import services.UserService;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LogInController {
     @FXML
@@ -45,29 +48,60 @@ public class LogInController {
     }
 
     public void logInAction() throws Exception{
+        UserService userService = new UserService();
+        List<Users> usersList = userService.getAllUsers();
+        boolean userFound = false;
 
-        /*
-            if(){
-                //salveaza credentialele clientului sau managerului
-                buttonLogIn.getScene().getWindow().hide();
-                Parent root = FXMLLoader.load(getClass().getResource("../scenes/Menu.fxml"));
-                Stage menuStage = new Stage();
-                Scene menuScene = new Scene(root);
-                //logInScene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
-                menuStage.setTitle("MENU");
-                menuStage.setScene(menuScene);
-                menuStage.show();
+        if(usersList.size() != 0) {
+            for(Users userIterator : usersList) {
+                if ((userIterator.getUsername().equals(username)) && (userIterator.getPassword().equals(password))) {
+                    Users user = userService.findUser(username);
+                    System.out.println(user);
+
+                    //daca userul este un client
+                    if (user.getIdClient() != null) {
+                        //salvam credentialele clientului
+
+                        //intram pe meniu
+                        buttonLogIn.getScene().getWindow().hide();
+                        Parent root = FXMLLoader.load(getClass().getResource("../scenes/Menu.fxml"));
+                        Stage menuStage = new Stage();
+                        Scene menuScene = new Scene(root);
+                        //logInScene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
+                        menuStage.setTitle("MENU");
+                        menuStage.setScene(menuScene);
+                        menuStage.show();
+                        userFound = true;
+                        break;
+                    }
+
+                    //daca userul este un manager
+                    if(user.getIdManager() != null){
+                        //salvam credentialele managerului
+
+                        //intram pe meniu
+                        buttonLogIn.getScene().getWindow().hide();
+                        Parent root = FXMLLoader.load(getClass().getResource("../scenes/MenuManager.fxml"));
+                        Stage menuStage = new Stage();
+                        Scene menuScene = new Scene(root);
+                        //logInScene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
+                        menuStage.setTitle("MENU");
+                        menuStage.setScene(menuScene);
+                        menuStage.show();
+                        userFound = true;
+                        break;
+                    }
+                }
             }
         }
-        if(){
+
+        if(!userFound){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Numele sau parola este gresita, sau utilizatorul nu se afla in baza de date");
             alert.setTitle("Opss!");
             alert.setHeaderText(null);
             alert.show();
         }
-         */
-
     }
 
     public void goToSignUp() throws IOException {

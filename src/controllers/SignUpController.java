@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Clients;
+import model.Users;
 import services.ClientService;
+import services.UserService;
 
 import java.io.IOException;
 
@@ -62,12 +64,40 @@ public class SignUpController {
         logInStage.show();
     }
 
-    public void signUpAction(){
+    public void signUpAction() throws Exception {
         ClientService clientService = new ClientService();
         Clients clients = new Clients();
-        clients.setNameClient(username);
-        clients.setTelephoneNumber(telNo);
-        clients.setEmailClient(email);
-        clientService.addClient(clients);
+        UserService userService = new UserService();
+        Users users = new Users();
+
+        //adding the client in the database
+        try {
+            clients.setNameClient(name);
+            clients.setTelephoneNumber(telNo);
+            clients.setEmailClient(email);
+            clientService.addClient(clients);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //adding the users of the respective client in the database
+        try {
+            users.setUsername(username);
+            users.setPassword(password);
+            Clients clientsUser = clientService.findClient(name);
+            users.setIdClient(clientsUser.getIdClient());
+            userService.addUser(users);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        signUp.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("../scenes/MENU.fxml"));
+        Stage menuStage = new Stage();
+        Scene menuScene = new Scene(root);
+        //logInScene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
+        menuStage.setTitle("MENU");
+        menuStage.setScene(menuScene);
+        menuStage.show();
     }
 }
