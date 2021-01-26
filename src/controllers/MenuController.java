@@ -8,7 +8,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import model.Carti;
+import model.Books;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,7 +27,7 @@ public class MenuController {
 
     }
 
-    public List<Carti> getAllBooks(){
+    public List<Books> getAllBooks(){
         return null;
     }
 

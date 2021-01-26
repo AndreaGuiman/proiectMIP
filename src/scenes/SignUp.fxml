@@ -20,7 +20,7 @@
         <TextField layoutX="360.0" layoutY="234.0" promptText="Adresa email" fx:id="emailField" onKeyReleased="#keyReleasedProperty"/>
         <TextField layoutX="360.0" layoutY="280.0" promptText="Telefon Client" fx:id="telNoField" onKeyReleased="#keyReleasedProperty"/>
         <CheckBox layoutX="398.0" layoutY="322.0" mnemonicParsing="false" text="Verify" fx:id="verify" onAction="#keyReleasedProperty"/>
-        <Button disable="true" layoutX="408.0" layoutY="352.0" mnemonicParsing="false" text="Sign In" fx:id="signUp" />
+        <Button disable="true" layoutX="408.0" layoutY="352.0" mnemonicParsing="false" text="Sign In" fx:id="signUp" onAction="#signUpAction"/>
         <Hyperlink fx:id="logIn" layoutX="130.0" layoutY="353.0" onMouseClicked="#goToLogIn" text="Back to log in" />
     </children>
 </Pane>

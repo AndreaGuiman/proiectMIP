@@ -6,11 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.Utilizatori;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 
 public class LogInController {
     @FXML
@@ -25,8 +22,6 @@ public class LogInController {
     PasswordField passwordField;
 
     String username, password;
-
-    HashMap<String, String> usersCredentials = new HashMap<String, String>();
 
 
     public void initialize(){
@@ -50,18 +45,29 @@ public class LogInController {
     }
 
     public void logInAction() throws Exception{
-        buttonLogIn.getScene().getWindow().hide();
-        Parent root = FXMLLoader.load(getClass().getResource("../scenes/Menu.fxml"));
-        Stage menuStage = new Stage();
-        Scene menuScene = new Scene(root);
-        //logInScene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
-        menuStage.setTitle("MENU");
-        menuStage.setScene(menuScene);
-        menuStage.show();
-    }
 
-    public List<Utilizatori> getAllUsers(){
-        return null;
+        /*
+            if(){
+                //salveaza credentialele clientului sau managerului
+                buttonLogIn.getScene().getWindow().hide();
+                Parent root = FXMLLoader.load(getClass().getResource("../scenes/Menu.fxml"));
+                Stage menuStage = new Stage();
+                Scene menuScene = new Scene(root);
+                //logInScene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
+                menuStage.setTitle("MENU");
+                menuStage.setScene(menuScene);
+                menuStage.show();
+            }
+        }
+        if(){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Numele sau parola este gresita, sau utilizatorul nu se afla in baza de date");
+            alert.setTitle("Opss!");
+            alert.setHeaderText(null);
+            alert.show();
+        }
+         */
+
     }
 
     public void goToSignUp() throws IOException {

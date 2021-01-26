@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="eclipselink">
+    <CLASSES>
+      <root url="jar://D:/Facultate/Others/Some java jars/jpaEclipseLink/eclipselink.jar!/" />
+      <root url="jar://D:/Facultate/Others/Some java jars/jpaEclipseLink/javax.persistence_2.1.0.v201304241213.jar!/" />
+      <root url="jar://D:/Facultate/Others/Some java jars/jpaEclipseLink/org.eclipse.persistence.jpa.modelgen_2.6.1.v20150916-55dc7c3.jar!/" />
+      <root url="jar://D:/Facultate/Others/Some java jars/jpaEclipseLink/org.eclipse.persistence.jpars_2.6.1.v20150916-55dc7c3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://D:/Facultate/Others/Some java jars/jpaEclipseLink/javax.persistence.source_2.1.0.v201304241213.jar!/" />
+      <root url="jar://D:/Facultate/Others/Some java jars/jpaEclipseLink/org.eclipse.persistence.jpa.modelgen.source_2.6.1.v20150916-55dc7c3.jar!/" />
+      <root url="jar://D:/Facultate/Others/Some java jars/jpaEclipseLink/org.eclipse.persistence.jpars.source_2.6.1.v20150916-55dc7c3.jar!/" />
+    </SOURCES>
+  </library>
+</component>

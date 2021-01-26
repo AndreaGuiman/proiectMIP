@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Clients;
+import services.ClientService;
 
 import java.io.IOException;
 
@@ -58,5 +60,14 @@ public class SignUpController {
         logInStage.setTitle("LOGIN");
         logInStage.setScene(logInScene);
         logInStage.show();
+    }
+
+    public void signUpAction(){
+        ClientService clientService = new ClientService();
+        Clients clients = new Clients();
+        clients.setNameClient(username);
+        clients.setTelephoneNumber(telNo);
+        clients.setEmailClient(email);
+        clientService.addClient(clients);
     }
 }

@@ -4,13 +4,12 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Objects;
 
 @Entity
-public class Review {
+public class Reviews {
     private int idReview;
     private String reviewText;
-    private Integer idCarte;
+    private Integer idBook;
     private Integer idClient;
 
     @Id
@@ -34,13 +33,13 @@ public class Review {
     }
 
     @Basic
-    @Column(name = "idCarte")
-    public Integer getIdCarte() {
-        return idCarte;
+    @Column(name = "idBook")
+    public Integer getIdBook() {
+        return idBook;
     }
 
-    public void setIdCarte(Integer idCarte) {
-        this.idCarte = idCarte;
+    public void setIdBook(Integer idBook) {
+        this.idBook = idBook;
     }
 
     @Basic
@@ -57,12 +56,23 @@ public class Review {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Review review = (Review) o;
-        return idReview == review.idReview && Objects.equals(reviewText, review.reviewText) && Objects.equals(idCarte, review.idCarte) && Objects.equals(idClient, review.idClient);
+
+        Reviews reviews = (Reviews) o;
+
+        if (idReview != reviews.idReview) return false;
+        if (reviewText != null ? !reviewText.equals(reviews.reviewText) : reviews.reviewText != null) return false;
+        if (idBook != null ? !idBook.equals(reviews.idBook) : reviews.idBook != null) return false;
+        if (idClient != null ? !idClient.equals(reviews.idClient) : reviews.idClient != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idReview, reviewText, idCarte, idClient);
+        int result = idReview;
+        result = 31 * result + (reviewText != null ? reviewText.hashCode() : 0);
+        result = 31 * result + (idBook != null ? idBook.hashCode() : 0);
+        result = 31 * result + (idClient != null ? idClient.hashCode() : 0);
+        return result;
     }
 }
