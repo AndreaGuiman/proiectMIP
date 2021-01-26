@@ -1,7 +1,9 @@
+package applicationTests;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Tests {
+public class MainTests {
     @Test
     public void firstTest() {
         Assert.assertTrue(true);

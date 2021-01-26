@@ -56,7 +56,6 @@ public class LogInController {
             for(Users userIterator : usersList) {
                 if ((userIterator.getUsername().equals(username)) && (userIterator.getPassword().equals(password))) {
                     Users user = userService.findUser(username);
-                    System.out.println(user);
 
                     //daca userul este un client
                     if (user.getIdClient() != null) {
